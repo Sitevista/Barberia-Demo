@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería & Estilo - Demo Sitio Web</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f0f0f;
+            --bg-card: #181818;
+            --accent: #c59b27;
+            --accent-hover: #e0b438;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border: #2a2a2a;
+            --whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* PITCH BAR FOR CLIENTS */
+        .client-pitch-bar {
+            background: linear-gradient(90deg, #111, #222);
+            border-bottom: 2px solid var(--accent);
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .client-pitch-bar strong { color: var(--accent); }
+
+        .pitch-btn {
+            background-color: var(--accent);
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.95)), 
+                        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        /* CONTAINER & SECTIONS */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        /* SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .service-price {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* AGENDAMIENTO DE CITAS */
+        .booking-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 35px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BANNER PITCH -->
+    <div class="client-pitch-bar">
+        💈 <strong>¿Eres dueño de esta barbería?</strong> Consigue tu web con sistema de citas directo a WhatsApp. 
+        <a href="https://wa.me/?text=Hola,%20vi%20la%20demo%20de%20barber%C3%ADa%20y%20me%20interesa%20personalizarla." target="_blank" class="pitch-btn">¡Solicitar Web Aquí!</a>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <h1>Imperium Barber Club</h1>
+        <p>Cortes de autor, perfilado de barba tradicional y atención de primera clase. Reserva tu turno sin esperas.</p>
+        <a href="#reservar" class="btn btn-primary">Agendar Cita en Línea</a>
+    </header>
+
+    <!-- SERVICIOS -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p style="color: var(--text-muted);">Calidad y precisión en cada corte</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Corte de Cabello Clásico / Fade</span>
+                    <span class="service-price">$15.00</span>
+                </div>
+                <p class="service-desc">Incluye asesoría de imagen, lavado, peinado con productos de alta gama y bebida de cortesía.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Perfilado de Barba Ritual</span>
+                    <span class="service-price">$12.00</span>
+                </div>
+                <p class="service-desc">Ritual con toalla caliente, aceites hidratantes y delineado a navaja tradicional.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-header">
+                    <span class="service-title">Servicio Combo VIP</span>
+                    <span class="service-price">$22.00</span>
+                </div>
+                <p class="service-desc">Corte de cabello completo + perfilado de barba + tratamiento facial exfoliante exprés.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDAR CITA -->
+    <section id="reservar" class="container">
+        <div class="section-title">
+            <h2>Agendar Cita</h2>
+            <p style="color: var(--text-muted);">Elige a tu barbero y tu horario preferido</p>
+        </div>
+
+        <div class="booking-box">
+            <form onsubmit="bookAppointment(event)">
+                <div class="form-group">
+                    <label>Nombre del Cliente</label>
+                    <input type="text" id="clientName" class="form-control" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Servicio Requerido</label>
+                    <select id="serviceSelect" class="form-control">
+                        <option>Corte de Cabello ($15.00)</option>
+                        <option>Perfilado de Barba ($12.00)</option>
+                        <option>Combo VIP ($22.00)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Selecciona tu Barbero</label>
+                    <select id="barberSelect" class="form-control">
+                        <option>Cualquier Barbero Disponible</option>
+                        <option>Barbero Carlos (Especialista en Fades)</option>
+                        <option>Barbero Mateo (Especialista en Barbas)</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" id="dateSelect" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Hora</label>
+                        <input type="time" id="timeSelect" class="form-control" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 14px;">Confirmar Cita por WhatsApp 📲</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Imperium Barber Club. Sitio web demostrativo.</p>
+    </footer>
+
+    <script>
+        function bookAppointment(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('serviceSelect').value;
+            const barber = document.getElementById('barberSelect').value;
+            const date = document.getElementById('dateSelect').value;
+            const time = document.getElementById('timeSelect').value;
+
+            let message = `Hola! Quisiera agendar una cita en la barbería:%0A%0A`;
+            message += `👤 *Cliente:* ${name}%0A`;
+            message += `💈 *Servicio:* ${service}%0A`;
+            message += `✂️ *Barbero:* ${barber}%0A`;
+            message += `📅 *Fecha:* ${date}%0A`;
+            message += `⏰ *Hora:* ${time}%0A%0A`;
+            message += `¿Tienen disponibilidad en ese horario?`;
+
+            window.open(`https://wa.me/?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
